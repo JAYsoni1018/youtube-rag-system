@@ -24,22 +24,22 @@ def extract_video_id(url):
     st.error("Invalid YouTube URL. Please enter a valid video link.")
     return None
 
-def youtube_transcript(video,language):
-
-    # yt_transcript=YouTubeTranscriptApi()
-     yt_transcript=YouTubeTranscriptApi(
+def youtube_transcript(video, language):
+    yt_transcript = YouTubeTranscriptApi(
         proxy_config=WebshareProxyConfig(
-            proxy_username="urjjsyoc",
-            proxy_password="17trld0v4wg0"
+            proxy_username="",
+            proxy_password=""
         )
     )
+
     try:
-        transcript=yt_transcript.fetch(video,languages=[language])
-        full_transcript=" ".join(i.text for i in transcript)
+        transcript = yt_transcript.fetch(video, languages=[language])
+        full_transcript = " ".join(i.text for i in transcript)
         time.sleep(10)
         return full_transcript
+
     except Exception as e:
-        st.error(f"Error occure for fetching Youtube video {e}")
+        st.error(f"Error occurred while fetching YouTube video: {e}")
 
 # abc=youtube_transcript("0YdpwSYMY6I","en")
 # print(abc)
