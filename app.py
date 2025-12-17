@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3']=sys.modeles.pop('pysqlite3')
+
 import streamlit as st
 from application import (extract_video_id,
                          youtube_transcript,
