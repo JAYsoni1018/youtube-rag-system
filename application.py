@@ -27,8 +27,8 @@ def extract_video_id(url):
 def youtube_transcript(video, language):
     yt_transcript = YouTubeTranscriptApi(
         proxy_config=WebshareProxyConfig(
-            proxy_username="",
-            proxy_password=""
+            proxy_username="urjjsyoc",
+            proxy_password="17trld0v4wg0"
         )
     )
 
