@@ -3,6 +3,7 @@ import streamlit as st
 from dotenv import load_dotenv
 import time
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import WebshareProxyConfig
 from langchain_google_genai import ChatGoogleGenerativeAI,GoogleGenerativeAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
@@ -25,7 +26,13 @@ def extract_video_id(url):
 
 def youtube_transcript(video,language):
 
-    yt_transcript=YouTubeTranscriptApi()
+    # yt_transcript=YouTubeTranscriptApi()
+     yt_transcript=YouTubeTranscriptApi(
+        proxy_config=WebshareProxyConfig(
+            proxy_username="urjjsyoc",
+            proxy_password="17trld0v4wg0"
+        )
+    )
     try:
         transcript=yt_transcript.fetch(video,languages=[language])
         full_transcript=" ".join(i.text for i in transcript)
