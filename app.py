@@ -55,7 +55,7 @@ if btn:
                 st.success("Summary and Notes generated")
 
             if task_option=="Chat With Video":
-                with st.spinner("Step 2/3: Crating chunks and embeddings...." ):
+                with st.spinner("Step 2/3: Creating chunks and embeddings...." ):
 
                     chunks= create_chunks(full_transcript)
                     vectorstore=creat_vector_store(chunks)
